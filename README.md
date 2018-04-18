@@ -57,8 +57,6 @@ Libraries / Dependencies
 	https://gradle.org 
 	https://github.com/bluepapa32/gradle-watch-plugin (Run predefined tasks whenever watched file patterns are added, changed or deleted.)
 
-**XML configuration file**
-
 **Logging**
 
 mailmerger-cmdline Log4j2 will generate 2 log files
@@ -69,6 +67,10 @@ mailmerger-cmdline Log4j2 will generate 2 log files
 </ul>
 
 Both files will use "ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss} [%t] %p %c - %m%n" 
+
+**XML configuration file**
+
+![alt text](https://raw.githubusercontent.com/distributev/mailmerger/master/settings.png)
 
 
 
