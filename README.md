@@ -49,8 +49,7 @@ Libraries / Dependencies
 
 **mailmerger-server**
 
-mailmerger-server will basically take the previous mailmerger-cmdline functionality and "decorate" this as a "server" app which 
-will always "watch" a specified folder for new CSV files to process. Whenever a new CSV file is found in the "poll" folder it will be picked up and processed automatically. That's all. gradle-watch-plugin will be used to "watch" the "poll" folder
+mailmerger-server will basically take the previous mailmerger-cmdline functionality and "decorate" this functionality as a "server" app which will always "watch" a specified folder for new CSV files to process. Whenever a new CSV file is found in the "poll" folder it will be picked up and processed automatically. That's all. gradle-watch-plugin will be used to "watch" the "poll" folder
 
 Libraries / Dependencies
 
