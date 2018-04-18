@@ -46,6 +46,7 @@ Libraries / Dependencies
 	https://github.com/google/guava (utilities library - Google core libraries for Java)
 	https://commons.apache.org/proper/commons-configuration/ ( generic configuration interface)
 	https://logging.apache.org/log4j/2.x/ (logging library)
+	https://junit.org/junit5/
 
 **mailmerger-server**
 
