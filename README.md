@@ -60,6 +60,17 @@ Libraries / Dependencies
 
 **XML configuration file**
 
+**Logging**
+
+mailmerger-cmdline Log4j2 will generate 2 log files
+
+<ul>
+<li>logs/info.log</li>
+<li>logs/errors.log</li>
+</ul>
+
+Both files will use "ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss} [%t] %p %c - %m%n" 
+
 
 
 
