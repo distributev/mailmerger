@@ -58,7 +58,9 @@ Libraries / Dependencies
 	https://gradle.org 
 	https://github.com/bluepapa32/gradle-watch-plugin (Run predefined tasks whenever watched file patterns are added, changed or deleted.)
 
-XML configuration file
+**XML configuration file**
+
+
 
 
 
