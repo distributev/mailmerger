@@ -70,7 +70,7 @@ Both files will use "ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss} [%t] %p %
 
 **XML configuration file**
 
-![alt text](https://raw.githubusercontent.com/distributev/mailmerger/master/settings.png)
+![alt text](https://raw.githubusercontent.com/distributev/mailmerger/master/settings1.png)
 
 
 
