@@ -82,8 +82,4 @@ Both files will use "ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss} [%t] %p %
 
 `./gradlew build`
 
-To run the simple *mailmerger-cmdline* application (doesn't do much yet)
-
-`./gradlew :mailmerger-cmdline:bootRun`
-
  
