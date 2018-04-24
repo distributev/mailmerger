@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{dd/MM/yyyy HH:mm:ss} [%t] %p %c - %m%n
+        </Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <RollingFile name="ErrorFile" fileName="logs/errors.log" filePattern="logs/errors-%d{MM-dd-yyyy}.log.gz" ignoreExceptions="false">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+        <RollingFile name="InfoFile" fileName="logs/info.log" filePattern="logs/info-%d{MM-dd-yyyy}.log.gz" ignoreExceptions="false">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <logger name="org.distributev.mailmerger" level="info" additivity="false">
+            <AppenderRef ref="ErrorFile" level="error"/>
+            <AppenderRef ref="InfoFile" level="info"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </logger>
+        <Root level="error">
+            <AppenderRef ref="ErrorFile" level="error"/>
+            <AppenderRef ref="InfoFile" level="info"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

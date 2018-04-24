@@ -74,9 +74,16 @@ Both files will use "ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss} [%t] %p %
 ![alt text](https://raw.githubusercontent.com/distributev/mailmerger/master/settings1.png)
 
 
+# Building and running
 
+### Building
 
+**To build and run tests**
 
+`./gradlew build`
 
+To run the simple *mailmerger-cmdline* application (doesn't do much yet)
+
+`./gradlew :mailmerger-cmdline:bootRun`
 
  
