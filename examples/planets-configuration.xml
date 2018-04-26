@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mailmerger>
+    <settings>
+        <template>planets-template.docx</template>
+        <outputfilename>${Root.planet}.pdf</outputfilename>
+        <outputfolder>outputfolder</outputfolder>
+    </settings>
+</mailmerger>

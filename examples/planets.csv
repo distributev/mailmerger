@@ -1,0 +1,10 @@
+﻿planet,diameter,distanceToSun,timeForOrbit,timeForSpin,temperature,moons
+Mercury,5000,60,88 days,1400,430,0
+Venus,12000,110,220 days,5800,470,0
+Earth,12800,150,365 1/4 days,24,20,1
+Mars,7000,230,2 years,25,-20,2
+Jupiter,140000,780,12 years,10,-150,16
+Saturn,120000,1400,30 years,10,-180,18 + rings
+Uranus,52000,2900,84 years,17,-210,15 + rings
+Neptune,50000,4500,160 years,16,-220,8
+Pluto,3000,6000,250 years,150,-230,1

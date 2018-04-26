@@ -2,12 +2,10 @@ package org.distributev.mailmerger;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.input.BOMInputStream;
 import org.distributev.mailmerger.report.ReportGenerator;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.UncheckedIOException;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.StreamSupport;
@@ -53,7 +51,8 @@ public class MailMergerService {
 
     private List<Map<String, String>> parseCsv(File dataFile) {
         try {
-            Iterable<CSVRecord> records = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(new FileReader(dataFile));
+            Iterable<CSVRecord> records = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(
+                new InputStreamReader(new BOMInputStream(new FileInputStream(dataFile))));
             return StreamSupport.stream(records.spliterator(), false)
                                 .map(CSVRecord::toMap)
                                 .collect(toList());
