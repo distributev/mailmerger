@@ -3,6 +3,6 @@
     <settings>
         <template>example/default-template.docx</template>
         <outputfilename>${Root.value1}.pdf</outputfilename>
-        <outputfolder>example-output</outputfolder>
+        <outputfolder>{outputfolder}</outputfolder>
     </settings>
 </mailmerger>
