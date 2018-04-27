@@ -1,9 +1,9 @@
 package org.distributev.mailmerger;
 
-import com.haulmont.yarg.formatters.factory.DefaultFormatterFactory;
 import com.haulmont.yarg.loaders.factory.DefaultLoaderFactory;
 import com.haulmont.yarg.loaders.impl.JsonDataLoader;
 import com.haulmont.yarg.reporting.Reporting;
+import org.distributev.mailmerger.report.MailMergerFormatterFactory;
 import org.distributev.mailmerger.report.ReportGenerator;
 import org.distributev.mailmerger.report.ReportWriter;
 import org.distributev.mailmerger.report.TemplateBuilder;
@@ -20,7 +20,7 @@ public class MailMergerServiceFactory {
      */
     public static MailMergerService build() {
         Reporting reporting = new Reporting();
-        reporting.setFormatterFactory(new DefaultFormatterFactory());
+        reporting.setFormatterFactory(new MailMergerFormatterFactory());
         reporting.setLoaderFactory(new DefaultLoaderFactory().setJsonDataLoader(new JsonDataLoader()));
 
         TemplateBuilder templateBuilder = new TemplateBuilder();
