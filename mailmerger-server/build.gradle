@@ -1,0 +1,36 @@
+buildscript {
+    ext { springBootVersion = '2.0.1.RELEASE' }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
+}
+
+plugins { id "io.spring.dependency-management" version "1.0.4.RELEASE" }
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'mailmerger-server'
+    version = '0.0.1-SNAPSHOT'
+}
+
+bootRun {
+    systemProperties = System.properties
+}
+
+sourceCompatibility = 1.8
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-log4j2')
+    compile group: 'org.gradle', name: 'gradle-tooling-api', version: '4.3'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
