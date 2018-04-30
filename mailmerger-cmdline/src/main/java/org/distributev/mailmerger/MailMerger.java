@@ -39,7 +39,7 @@ public class MailMerger {
         File configurationFile = new File(configurationFileLocation);
 
         if (!configurationFile.exists() || !configurationFile.isFile()) {
-            throw new IllegalArgumentException("Configuration file not found");
+            throw new IllegalArgumentException("Configuration file " + configurationFile + " not found");
         }
 
         try {
