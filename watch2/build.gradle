@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath group: 'mailmerger', name: 'mailmerger-cmdline', version: '0.0.1-SNAPSHOT'
+    }
+}
+
+class MailMerger extends DefaultTask {
+    File watchDirectory;
+    File completedDirectory
+    File configFile
+
+    @InputDirectory
+    File getSourceFiles() {
+        return this.watchDirectory
+    }
+
+    @TaskAction
+    void sayGreeting() {
+        watchDirectory.listFiles().each { file ->
+            new org.distributev.mailmerger.MailMerger().main("-f", file.getPath(),
+                                                             "-c", configFile.getPath())
+        }
+
+        watchDirectory.listFiles()
+                      .each { file -> file.renameTo(new File(completedDirectory, file.getName()))
+        }
+    }
+}
+
+task mailMerger (type : MailMerger) {
+    watchDirectory = file(project.property("watchDir"))
+    completedDirectory = file(project.property("completedDir"))
+    configFile = file(project.property("configFile"))
+}
+
+
