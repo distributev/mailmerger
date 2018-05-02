@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<mailmerger>
-    <settings>
-        <template>default-template.docx</template>
-        <outputfilename>${Root.value1}.pdf</outputfilename>
-        <outputfolder>outputfolder</outputfolder>
-    </settings>
-</mailmerger>
