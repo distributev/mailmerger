@@ -30,6 +30,9 @@ public class MailMergerGradleService {
     @Value("${completed.dir}")
     private String completedDir;
 
+    @Value("${mmJar}")
+    private String mmJar;
+
     /**
      * Runs the Gradle mailMerger task in continuous mode
      */
@@ -40,7 +43,11 @@ public class MailMergerGradleService {
         try {
             connection.newBuild()
                       .forTasks("mailMerger")
-                      .withArguments("--continuous", "-PwatchDir=" + watchDir, "-PcompletedDir=" + completedDir, "-PconfigFile=" + configFile)
+                      .withArguments("--continuous",
+                                     "-PwatchDir=" + watchDir,
+                                     "-PmmJar=" + mmJar,
+                                     "-PcompletedDir=" + completedDir,
+                                     "-PconfigFile=" + configFile)
                       .run();
         } catch (Exception e) {
             logger.error("Error running Grade task", e);
