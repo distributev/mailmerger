@@ -27,3 +27,18 @@ You can then run `org.distributev.mailmerger.server.Application` with the follow
 --completed.dir=/full/path/to/folder/where/data/files/will/be/placed/when/completed
 --config.file=/full/path/to/mailmerger/config/file
 ```
+
+### Logging
+
+By default mailmerger-cmdline with use the log4j2.xml file located in the project's resouces folder.  It is setup to log to 2 different files.
+
+1. logs/info.log (will contain INFO level and above messages)
+2. logs/errors.log (will contain ERROR level and above messages)
+
+These files are set to roll daily and will compress the old files using the pattern `logs/errors-%d{MM-dd-yyyy}.log.gz`.
+
+When the mailmerger-cmdline application is run the `logs` directory will be created (if it doesn't already exist) in the working directory where the application is run from.
+
+There is the ability to use a different log4j2 configuration file by using the VM option `-Dlog4j.configurationFile=/path/to/custom/log4j2.xml`
+
+mailmerger-cmdline will log an INFO level log entry for every file report file generates.  Non recoverable errors are propogated to the root of the application where they should be logged once at level ERROR and then the process will exit with a non-zero exit.
