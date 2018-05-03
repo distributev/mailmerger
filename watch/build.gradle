@@ -15,10 +15,9 @@ class MailMerger extends DefaultTask {
         def files = watchDirectory.listFiles()
         files.each { file ->
             String com = "java -jar ${mmJar} -f ${file.getPath()} -c ${configFile.getPath()}"
-            com.execute()
+            com.execute().waitFor()
+            file.renameTo(new File(completedDirectory, file.getName()))
         }
-
-        files.each { file -> file.renameTo(new File(completedDirectory, file.getName())) }
     }
 }
 
