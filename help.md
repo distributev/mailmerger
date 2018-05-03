@@ -28,7 +28,9 @@ You can then run `org.distributev.mailmerger.server.Application` with the follow
 --config.file=/full/path/to/mailmerger/config/file
 ```
 
+
 ### Logging
+
 
 By default mailmerger-cmdline with use the log4j2.xml file located in the project's resouces folder.  It is setup to log to 2 different files.
 
