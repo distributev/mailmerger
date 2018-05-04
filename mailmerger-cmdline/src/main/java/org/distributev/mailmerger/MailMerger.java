@@ -21,28 +21,28 @@ public class MailMerger {
     private static final String DEFAULT_CONFIGURATION_FILE = getDefaultConfigurationFile();
 
     public static void main(String[] args) {
-        CommandLine commandLine = generateCommandLine(generateOptions(), args);
-
-        if (!commandLine.hasOption("file")) {
-            throw new IllegalArgumentException("file option must be specified");
-        }
-
-        String dataFileLocation = commandLine.getOptionValue("file");
-        String configurationFileLocation = commandLine.getOptionValue("configuration", DEFAULT_CONFIGURATION_FILE);
-
-        File dataFile = new File(dataFileLocation);
-
-        if (!dataFile.exists() || !dataFile.isFile()) {
-            throw new IllegalArgumentException("Data file not found");
-        }
-
-        File configurationFile = new File(configurationFileLocation);
-
-        if (!configurationFile.exists() || !configurationFile.isFile()) {
-            throw new IllegalArgumentException("Configuration file " + configurationFile + " not found");
-        }
-
         try {
+            CommandLine commandLine = generateCommandLine(generateOptions(), args);
+
+            if (!commandLine.hasOption("file")) {
+                throw new IllegalArgumentException("file option must be specified");
+            }
+
+            String dataFileLocation = commandLine.getOptionValue("file");
+            String configurationFileLocation = commandLine.getOptionValue("configuration", DEFAULT_CONFIGURATION_FILE);
+
+            File dataFile = new File(dataFileLocation);
+
+            if (!dataFile.exists() || !dataFile.isFile()) {
+                throw new IllegalArgumentException("Data file not found");
+            }
+
+            File configurationFile = new File(configurationFileLocation);
+
+            if (!configurationFile.exists() || !configurationFile.isFile()) {
+                throw new IllegalArgumentException("Configuration file " + configurationFile + " not found");
+            }
+
             mailMergerService.generateReports(dataFile, new MailMergerConfiguration(configurationFile));
         } catch (Exception e) {
             LOGGER.error("Error generating reports", e);
