@@ -16,6 +16,12 @@
         <RollingFile name="InfoFile" fileName="logs/info.log" filePattern="logs/info-%d{MM-dd-yyyy}.log.gz" ignoreExceptions="false">
             <PatternLayout pattern="${LOG_PATTERN}" />
             <TimeBasedTriggeringPolicy />
+            <Filters>
+                <ThresholdFilter level="warn"  onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
         </RollingFile>
     </Appenders>
     <Loggers>
