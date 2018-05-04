@@ -30,7 +30,7 @@ class MailMergerIntegrationTest {
 
         String configString = FileUtils.readFileToString(new File(
             MailMergerIntegrationTest.class.getClassLoader().getResource("example/default-configuration.xml").getPath()));
-        configString = configString.replaceAll("\\{outputfolder\\}", temporaryWorkSpace.getPath());
+        configString = configString.replaceAll("\\{outputfolder\\}", temporaryWorkSpace.getPath().replace('\\', '/'));
         File tempConfigFile = new File(temporaryWorkSpace, "config.xml");
 
         FileUtils.writeStringToFile(tempConfigFile, configString);
@@ -38,7 +38,7 @@ class MailMergerIntegrationTest {
 
     @AfterEach
     void cleanup() throws IOException {
-        FileUtils.deleteDirectory(temporaryWorkSpace);
+        FileUtils.forceDeleteOnExit(temporaryWorkSpace);
     }
 
 
