@@ -29,7 +29,7 @@ public class ReportWriter {
         try {
             Files.createParentDirs(file);
             IOUtils.write(reportOutputDocument.getContent(), new FileOutputStream(file));
-            LOGGER.debug(() -> "Wrote file " + file.getPath() + " of size " + reportOutputDocument.getContent().length);
+            LOGGER.info(() -> "Generated file " + file.getPath());
         } catch (IOException e) {
             throw new UncheckedIOException("Error writing to output file: " + file, e);
         }
